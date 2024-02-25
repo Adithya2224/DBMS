@@ -67,19 +67,25 @@ CREATE TABLE policy_payments
 
 -- Performing queries
 -- Problem#1:
+--Write a query to display the policytypeid,policytypename,description of all the car’s policy details
 SELECT p.policy_type_id, r.policy_type_name, p.description
 FROM policy_sub_types p
 JOIN ref_policy_types r ON p.policy_type_code = r.policy_type_code
 WHERE r.policy_type_name ='car';
 
 -- Problem#2:
+--Write a query to display the policytypecode,no of polycies in each code with alias name NO_OF_POLICIES.
 SELECT policy_type_code, COUNT(policy_type_code) AS no_of_policies
 FROM policy_sub_types
 GROUP BY policy_type_code;
 
 -- Problem#3:
+--Write a query to display the userid,firstname,lastname, email,mobileno who are residing in Chennai.
 SELECT ud.user_id, ud.firstname, ud.lastname, ud.email, ud.mobileno
 FROM user_details ud
 JOIN address_details ad ON ud.address_id=ad.address_id
 WHERE ad.city='hyderabad'
 GROUP BY ud.user_id;
+
+
+
